@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>La Brownería | Repostería Gourmet</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        background: #f6c1d1;
+        color: #1a0b0e;
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 100vh;
+        background:
+            linear-gradient(180deg, rgba(15,7,9,0.4), rgba(15,7,9,0.85)),
+            url("https://images.unsplash.com/photo-1606312619344-42b1df8c2c3a?auto=format&fit=crop&w=1600&q=80");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .brand {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(3em, 6vw, 4.5em);
+        letter-spacing: 3px;
+        color: #fff;
+    }
+
+    .tagline {
+        margin-top: 25px;
+        font-size: 1.3em;
+        color: #e4d8cf;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* GALERÍA */
+    .galeria {
+        background: #fde7ef;
+        padding: 80px 10%;
+    }
+
+    .galeria h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.6em;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .editorial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 30px;
+    }
+
+    .editorial-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+
+    /* MENU */
+    .menu {
+        padding: 80px 10%;
+    }
+
+    .menu h2 {
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        font-size: 2.6em;
+        margin-bottom: 50px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 35px;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.08);
+        padding: 30px;
+        border-radius: 28px;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 20px;
+        margin-bottom: 15px;
+    }
+
+    .card h3 {
+        font-family: 'Playfair Display', serif;
+    }
+
+    .toppings {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .toppings label {
+        display: block;
+        cursor: pointer;
+    }
+
+    .toppings input[type="checkbox"],
+    .toppings input[type="radio"] {
+        margin-right: 8px;
+        cursor: pointer;
+    }
+
+    /* botones toppings/rellenos */
+    .toppings button {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid #f3c4d4;
+        border-radius: 20px;
+        padding: 6px 12px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 0.9em;
+        transition: all 0.2s ease;
+    }
+
+    .toppings button.selected {
+        background: #f3c4d4;
+        color: #1a0b0e;
+        border-color: #f3c4d4;
+    }
+
+    /* CTA */
+    .cta {
+        background: linear-gradient(135deg, #6d1b2a, #4f131f);
+        text-align: center;
+        padding: 80px 10%;
+    }
+
+    .cta a {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 16px 40px;
+        border-radius: 50px;
+        background: #f8f3ef;
+        color: #6d1b2a;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+        background: #0b0406;
+        text-align: center;
+        padding: 30px;
+        color: #cbb8ae;
+    }
+
+    /* ===== BOTONES REDES SOCIALES FLOTANTES ===== */
+    .social-floating {
+        position: fixed;
+        bottom: 25px;
+        left: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 9999;
+    }
+
+    .social-floating a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.5em;
+        transition: all 0.3s ease;
+    }
+
+    .social-floating a.instagram { background: #E1306C; }
+    .social-floating a.facebook  { background: #3b5998; }
+    .social-floating a.whatsapp  { background: #25D366; }
+
+    .social-floating a:hover {
+        transform: scale(1.2);
+    }
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <div>
+        <div class="brand">La Brownería</div>
+        <div class="tagline">Repostería gourmet para regalar momentos inolvidables</div>
+    </div>
+</section>
+
+<section class="galeria">
+    <h2>Momentos que se Regalan</h2>
+    <div class="editorial-grid">
+        <div class="editorial-item"><img src="/static/images/brownie5.png" alt="Pizza Brownie Grande"></div>
+        <div class="editorial-item"><img src="/static/images/brownie6.png" alt="Cupcakes"></div>
+        <div class="editorial-item"><img src="/static/images/brownie7.png" alt="Brownies en Caja"></div>
+        <div class="editorial-item"><img src="/static/images/brownie8.png" alt="Mini Cakes"></div>
+    </div>
+</section>
+
+<section class="menu">
+    <h2>Colección 14 de Febrero</h2>
+    <div class="cards" id="menu-container"></div>
+</section>
+
+<section class="cta">
+    <h2>Reserva tu pedido</h2>
+    <a href="https://wa.me/5219371214852" target="_blank">Contactar por WhatsApp</a>
+</section>
+
+<footer>
+    <p>&copy; 2026 La Brownería | Repostería Gourmet</p>
+</footer>
+
+<!-- BOTONES FLOTANTES -->
+<div class="social-floating">
+    <a href="https://www.instagram.com/labrowneriacard" target="_blank" class="instagram">📸</a>
+    <a href="https://www.facebook.com/labrowneriacardenas" target="_blank" class="facebook">📘</a>
+    <a href="https://wa.me/5219371214852" target="_blank" class="whatsapp">💬</a>
+</div>
+
+<script>
+const menu = [
+    {
+        nombre: "Pizza Brownie Grande $500",
+        descripcion: "Toppings a elegir (6). Toppings extra $15",
+        imagen: "/static/images/hero3.png",
+        toppings: ["Nutella","Fresas","KinderDelice","Ferrero","Bubulubu","Oreo"]
+    },
+    {
+        nombre: "Pizza Brownie Chica $270",
+        descripcion: "Toppings a elegir (4). Toppings extra $15",
+        imagen: "/static/images/hero3.png",
+        toppings: ["Nutella","Fresas","KinderDelice","Ferrero","Bubulubu","AzucarGlas","Oreo"]
+    },
+    {
+        nombre: "Roles en Caja Personalizada $220",
+        descripcion: "Roles con diseño especial",
+        imagen: "/static/images/hero4.png",
+        toppings: ["Nutella","Fresas","KinderDelice","Ferrero","Bubulubu","Oreo","PaletaPayaso","Snikers"]
+    },
+    {
+        nombre: "Cupcakes Personalizados $280",
+        descripcion: "Cupcakes con diseño especial",
+        imagen: "/static/images/postre1.png",
+        toppings: ["Nutella","Fresas","CarlosV","Lunetas","Chokis","AzucarGlas","Oreo"],
+        pan: ["Vainilla","Chocolate","Red Velvet"]
+    },
+    {
+        nombre: "Brownies en Caja $380",
+        descripcion: "Caja regalo premium",
+        imagen: "/static/images/hero2.png",
+        toppings: ["Nutella","Fresas","KinderDelice","Ferrero","Bubulubu","AzucarGlas","Oreo"]
+    },
+    {
+        nombre: "Mini Cakes $180",
+        descripcion: "Pasteles pequeños personalizados",
+        imagen: "/static/images/postre2.png",
+        toppings: ["Nutella","Fresas","KinderDelice","Ferrero","Bubulubu","AzucarGlas","Oreo"],
+        pan: ["Vainilla","Chocolate","Red Velvet"]
+    }
+];
+
+const container = document.getElementById("menu-container");
+
+menu.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const tipo = item.nombre.includes("Cupcakes") || item.nombre.includes("Mini Cakes") ? "Rellenos" : "Toppings";
+
+    let panHTML = "";
+    if(item.pan){
+        panHTML = `<div class="pan">
+            <p><strong>Elige el tipo de pan:</strong></p>
+            ${item.pan.map(p => `
+                <label>
+                    <input type="radio" name="pan-${item.nombre}" value="${p}" required>
+                    ${p}
+                </label>
+            `).join("")}
+        </div>`;
+    }
+
+    card.innerHTML = `
+        <img src="${item.imagen}" alt="${item.nombre}" class="product-img">
+        <h3>${item.nombre}</h3>
+        <p>${item.descripcion}</p>
+        <div class="toppings">
+            <p><strong>Elige tus ${tipo}:</strong></p>
+            ${item.toppings.map(t => `
+                <label>
+                    <input type="checkbox" value="${t}">
+                    ${t}
+                </label><br>
+            `).join("")}
+        </div>
+        ${panHTML}
+        <button class="btn-whatsapp">Pedir por WhatsApp</button>
+    `;
+
+    card.querySelector(".btn-whatsapp").onclick = () => {
+        const seleccionados = [...card.querySelectorAll("input[type='checkbox']:checked")].map(i => i.value);
+        const seleccionTexto = seleccionados.length ? seleccionados.join(", ") : `Sin ${tipo.toLowerCase()} adicionales`;
+
+        let panSeleccion = "No aplica";
+        const panInput = card.querySelector(".pan input:checked");
+        if(panInput) panSeleccion = panInput.value;
+
+        const mensaje = encodeURIComponent(
+`Hola 👋✨
+Quisiera realizar un pedido en *La Brownería* 🍫
+
+📌 *Producto:* ${item.nombre}
+🍓 *${tipo}:* ${seleccionTexto}
+🥖 *Pan:* ${panSeleccion}
+
+Quedo atento(a), muchas gracias 💗`
+        );
+
+        window.open(`https://wa.me/5219371214852?text=${mensaje}`, "_blank");
+    };
+
+    container.appendChild(card);
+});
+</script>
+</body>
+</html>
+
